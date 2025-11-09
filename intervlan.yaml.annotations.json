@@ -7,8 +7,8 @@
       "id": "SW1",
       "icon": "router",
       "position": {
-        "x": -7,
-        "y": 105
+        "x": -21,
+        "y": 91
       },
       "geoCoordinates": {
         "lat": 48.684826888402256,
@@ -19,7 +19,7 @@
       "id": "SW2",
       "icon": "router",
       "position": {
-        "x": 259,
+        "x": 175,
         "y": 91
       },
       "geoCoordinates": {
@@ -31,8 +31,8 @@
       "id": "SWD_1",
       "icon": "router",
       "position": {
-        "x": 91,
-        "y": -35
+        "x": 77,
+        "y": 35
       },
       "geoCoordinates": {
         "lat": 48.684826888402256,
@@ -44,7 +44,7 @@
       "icon": "router",
       "position": {
         "x": -77,
-        "y": 147
+        "y": 133
       },
       "geoCoordinates": {
         "lat": 48.684826888402256,
@@ -56,7 +56,7 @@
       "icon": "router",
       "position": {
         "x": -77,
-        "y": 231
+        "y": 175
       },
       "geoCoordinates": {
         "lat": 48.684826888402256,
@@ -67,8 +67,8 @@
       "id": "host3",
       "icon": "router",
       "position": {
-        "x": 91,
-        "y": 147
+        "x": 35,
+        "y": 133
       },
       "geoCoordinates": {
         "lat": 48.684826888402256,
@@ -79,8 +79,8 @@
       "id": "host4",
       "icon": "router",
       "position": {
-        "x": 77,
-        "y": 217
+        "x": 35,
+        "y": 175
       },
       "geoCoordinates": {
         "lat": 48.88482688840226,
@@ -91,7 +91,7 @@
       "id": "host5",
       "icon": "router",
       "position": {
-        "x": 189,
+        "x": 119,
         "y": 133
       },
       "geoCoordinates": {
@@ -103,8 +103,8 @@
       "id": "host6",
       "icon": "router",
       "position": {
-        "x": 203,
-        "y": 217
+        "x": 119,
+        "y": 175
       },
       "geoCoordinates": {
         "lat": 48.684826888402256,
@@ -115,7 +115,7 @@
       "id": "host7",
       "icon": "router",
       "position": {
-        "x": 343,
+        "x": 231,
         "y": 133
       },
       "geoCoordinates": {
@@ -127,8 +127,8 @@
       "id": "host8",
       "icon": "router",
       "position": {
-        "x": 329,
-        "y": 217
+        "x": 231,
+        "y": 175
       },
       "geoCoordinates": {
         "lat": 49.28482688840226,
