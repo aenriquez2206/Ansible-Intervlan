@@ -1,0 +1,69 @@
+name: intervlan
+
+mgmt:
+  network: mgnt-net
+  ipv4-subnet: 192.168.1.0/24
+
+topology:
+  nodes:
+    SW1:
+      kind: cisco_iol
+      image: vrnetlab/cisco_iol:L2-17.12.01
+      type: L2
+
+    SW2:
+      kind: cisco_iol
+      image: vrnetlab/cisco_iol:L2-17.12.01
+      type: L2
+
+    SWD_1:
+      kind: cisco_iol
+      image: vrnetlab/cisco_iol:L2-17.12.01
+      type: L2
+
+    host1:
+      kind: linux
+      image: alpine-ssh:latest
+
+    host2:
+      kind: linux
+      image: alpine-ssh:latest
+
+
+    host3:
+      kind: linux
+      image: alpine-ssh:latest
+
+    host4:
+      kind: linux
+      image: alpine-ssh:latest
+
+    host5:
+      kind: linux
+      image: alpine-ssh:latest
+
+    host6:
+      kind: linux
+      image: alpine-ssh:latest
+
+
+    host7:
+      kind: linux
+      image: alpine-ssh:latest
+
+    host8:
+      kind: linux
+      image: alpine-ssh:latest
+
+  links:
+    - endpoints: [ "host1:eth1", "SW1:eth2" ]
+    - endpoints: [ "host2:eth1", "SW1:eth3" ]
+    - endpoints: [ "host3:eth1", "SW1:eth4" ]
+    - endpoints: [ "host4:eth1", "SW1:eth5" ]
+    - endpoints: [ "host5:eth1", "SW2:eth2" ]
+    - endpoints: [ "host6:eth1", "SW2:eth3" ]
+    - endpoints: [ "host7:eth1", "SW2:eth4" ]
+    - endpoints: [ "host8:eth1", "SW2:eth5" ]
+    - endpoints: [ "SW1:eth1", "SWD_1:eth1" ]
+    - endpoints: [ "SW2:eth1", "SWD_1:eth2" ] 
+

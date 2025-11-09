@@ -1,0 +1,72 @@
+---
+- name: Configurar VLANs solo en SW1 y SW2
+  hosts:
+    - clab-intervlan-SW1
+    - clab-intervlan-SW2
+  gather_facts: no
+  connection: network_cli
+  vars:
+    ansible_network_os: cisco.ios.ios
+    ansible_user: admin
+    ansible_password: admin
+
+    vlans:
+      - id: 10
+        name: VLAN10
+      - id: 20
+        name: VLAN20
+
+    trunk_port: Ethernet0/1
+
+    access_ports:
+      - interface: Ethernet0/2
+        vlan: 10
+      - interface: Ethernet0/3
+        vlan: 10
+      - interface: Ethernet0/4
+        vlan: 20
+      - interface: Ethernet0/5
+        vlan: 20
+
+
+  tasks:
+    - name: Crear VLANs
+      ios_config:
+        lines:
+          - vlan {{ item.id }}
+          - name {{ item.name }}
+      loop: "{{ vlans }}"
+
+  
+    - name: Configurar interfaz troncal
+      ios_config:
+        parents: "interface {{trunk_port}}"
+        lines:
+          - switchport trunk encapsulation dot1q
+          - switchport mode trunk
+          - switchport trunk native vlan 1
+        match: none
+
+    - name: Configurar puertos de acceso
+      ios_config:
+        parents: "interface {{item.interface}}"
+        lines: 
+          - switchport mode access
+          - switchport access vlan {{ item.vlan }}
+      loop: "{{ access_ports }}"
+
+    - name: Guardar configuración
+      ios_command:
+        commands:
+          - write memory
+    
+    - name: Mostrar interfaces
+      ios_command:
+        commands:
+          - show vlan brief
+          - show interface trunk
+      register: result
+
+    - name: Mostrar salida
+      debug:
+        var: result.stdout[0]

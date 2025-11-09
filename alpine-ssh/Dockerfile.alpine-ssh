@@ -1,0 +1,27 @@
+# Imagen Alpine con SSH funcional para Containerlab + Ansible
+FROM alpine:latest
+
+# Instalar dependencias básicas
+RUN apk update && \
+    apk add --no-cache openssh sudo bash shadow python3 py3-pip && \
+    mkdir -p /var/run/sshd && \
+    chmod 700 /var/run/sshd
+
+# Crear usuario ansible
+RUN useradd -m -s /bin/bash admin && echo "admin:admin" | chpasswd && adduser admin wheel
+
+# Permitir login SSH con contraseña
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && \
+    sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
+
+# Generar llaves del servidor SSH
+RUN ssh-keygen -A
+
+# Permitir sudo sin contraseña
+RUN echo "admin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+# Exponer el puerto SSH
+EXPOSE 22
+
+# Comando principal
+CMD ["/usr/sbin/sshd", "-D"]

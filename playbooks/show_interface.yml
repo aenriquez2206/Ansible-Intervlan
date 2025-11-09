@@ -1,0 +1,22 @@
+---
+- name: Mostrar interfaces en switches Cisco
+  hosts: cisco_iol
+  gather_facts: no
+  connection: network_cli
+  vars:
+    ansible_network_os: cisco.ios.ios
+    ansible_user: admin
+    ansible_password: admin
+       
+  tasks:
+    - name: Mostrar interfaces
+      ios_command:
+        commands:
+          - show ip int brief
+      register: result
+
+    - name: Mostrar salida
+      debug:
+        var: result.stdout[0]
+        
+        

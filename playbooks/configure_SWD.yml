@@ -1,0 +1,58 @@
+---
+- name: Configuración Switch de distribucion
+  hosts: clab-intervlan-SWD_1
+  gather_facts: no
+  connection: network_cli
+  vars:
+    ansible_network_os: cisco.ios.ios
+    ansible_user: admin
+    ansible_password: admin
+
+    vlans:
+      - id: 10
+        name: VLAN10
+        ip: 192.168.10.1
+        mask: 255.255.255.0
+      - id: 20
+        name: VLAN20
+        ip: 192.168.20.1
+        mask: 255.255.255.0
+
+    trunk_ports: 
+      - Ethernet0/1
+      - Ethernet0/2
+
+  tasks:
+
+    - name: Crear VLANs y asignar nombres
+      ios_config:
+        lines:
+          - vlan {{ item.id }}
+          - name {{ item.name }}
+      loop: "{{ vlans }}"
+
+    - name: Habilitar switch de capa 3
+      ios_config:
+        lines:
+          - ip routing
+
+    - name: Configurar interfaces VLAN con IP
+      ios_config:
+        parents: "interface vlan {{ item.id }}"
+        lines:
+          - ip address {{ item.ip }} {{ item.mask }}
+          - no shutdown
+      loop: "{{ vlans }}"
+
+    - name: Configurar puertos troncales
+      ios_config:
+        parents: "interface {{ item }}"
+        lines:
+          - switchport trunk encapsulation dot1q
+          - switchport mode trunk
+      loop: "{{ trunk_ports }}"
+
+    - name: Guardar configuración
+      ios_command:
+        commands:
+          - write memory

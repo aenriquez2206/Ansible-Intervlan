@@ -1,0 +1,79 @@
+---
+- name: Configurar IPs en hosts Linux Alpine
+  hosts: linux
+  become: yes
+  gather_facts: no
+  vars:
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+    ansible_user: admin
+    ansible_password: admin
+
+    host_ips:
+      #CONFIGURACION DE HOSTS DE VLAN 10
+      clab-intervlan-host1:
+        interface: eth1
+        ip: 192.168.10.10
+        mask: 24
+        gateway: 192.168.10.1
+      clab-intervlan-host2:
+        interface: eth1
+        ip: 192.168.10.20
+        mask: 24
+        gateway: 192.168.10.1
+      clab-intervlan-host5:
+        interface: eth1
+        ip: 192.168.10.30
+        mask: 24
+        gateway: 192.168.10.1
+      clab-intervlan-host6:
+        interface: eth1
+        ip: 192.168.10.40
+        mask: 24
+        gateway: 192.168.10.1
+      #CONFIGURACION DE HOST DE VLAN 20
+      clab-intervlan-host3:
+        interface: eth1
+        ip: 192.168.20.10
+        mask: 24
+        gateway: 192.168.20.1
+      clab-intervlan-host4:
+        interface: eth1
+        ip: 192.168.20.20
+        mask: 24
+        gateway: 192.168.20.1
+      clab-intervlan-host7:
+        interface: eth1
+        ip: 192.168.20.30
+        mask: 24
+        gateway: 192.168.20.1
+      clab-intervlan-host8:
+        interface: eth1
+        ip: 192.168.20.40
+        mask: 24
+        gateway: 192.168.20.1
+
+  tasks:
+    - name: Limpiar IPs existentes en la interfaz
+      ansible.builtin.shell: ip addr flush dev {{ host_ips[inventory_hostname].interface }}
+
+    - name: Asignar IP estática a la interfaz
+      ansible.builtin.shell: ip addr add {{ host_ips[inventory_hostname].ip }}/{{ host_ips[inventory_hostname].mask }} dev {{ host_ips[inventory_hostname].interface }}
+
+    - name: Levantar la interfaz
+      ansible.builtin.shell: ip link set {{ host_ips[inventory_hostname].interface }} up
+
+    - name: Eliminar ruta por defecto existente
+      ansible.builtin.shell: |
+        ip route del default || true
+
+    - name: Agregar ruta por defecto correcta
+      ansible.builtin.shell: |
+        ip route add default via {{ host_ips[inventory_hostname].gateway }}
+
+    - name: Verificar configuración
+      ansible.builtin.command: ip addr show {{ host_ips[inventory_hostname].interface }}
+      register: iface_info
+
+    - name: Mostrar IP configurada
+      ansible.builtin.debug:
+        var: iface_info.stdout_lines
