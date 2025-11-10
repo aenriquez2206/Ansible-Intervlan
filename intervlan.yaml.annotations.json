@@ -1,6 +1,67 @@
 {
-  "freeTextAnnotations": [],
-  "groupStyleAnnotations": [],
+  "freeTextAnnotations": [
+    {
+      "id": "freeText_1762775187003_1",
+      "text": "LABORATORIO INTERVLAN",
+      "position": {
+        "x": -49,
+        "y": -7
+      },
+      "fontSize": 8,
+      "fontColor": "#ffffff",
+      "backgroundColor": "transparent",
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "fontFamily": "monospace"
+    }
+  ],
+  "groupStyleAnnotations": [
+    {
+      "id": "VLAN 10:1",
+      "backgroundColor": "#d6a8a8",
+      "backgroundOpacity": 50,
+      "borderColor": "#dddddd",
+      "borderWidth": 0.5,
+      "borderStyle": "dashed",
+      "borderRadius": 2,
+      "color": "#ebecf0",
+      "labelPosition": "top-center"
+    },
+    {
+      "id": "VLAN10:1",
+      "backgroundColor": "#d6a8a8",
+      "backgroundOpacity": 50,
+      "borderColor": "#dddddd",
+      "borderWidth": 0.5,
+      "borderStyle": "dashed",
+      "borderRadius": 2,
+      "color": "#ebecf0",
+      "labelPosition": "top-center"
+    },
+    {
+      "id": "VLAN20:1",
+      "backgroundColor": "#51bf22",
+      "backgroundOpacity": 50,
+      "borderColor": "#dddddd",
+      "borderWidth": 0.5,
+      "borderStyle": "dashed",
+      "borderRadius": 2,
+      "color": "#ebecf0",
+      "labelPosition": "top-center"
+    },
+    {
+      "id": "VLAN20:3",
+      "backgroundColor": "#51bf22",
+      "backgroundOpacity": 50,
+      "borderColor": "#dddddd",
+      "borderWidth": 0.5,
+      "borderStyle": "dashed",
+      "borderRadius": 2,
+      "color": "#ebecf0",
+      "labelPosition": "top-center"
+    }
+  ],
   "cloudNodeAnnotations": [],
   "nodeAnnotations": [
     {
@@ -49,7 +110,9 @@
       "geoCoordinates": {
         "lat": 48.684826888402256,
         "lng": 9.007895390625677
-      }
+      },
+      "group": "VLAN 10",
+      "level": "1"
     },
     {
       "id": "host2",
@@ -61,7 +124,9 @@
       "geoCoordinates": {
         "lat": 48.684826888402256,
         "lng": 9.007895390625677
-      }
+      },
+      "group": "VLAN 10",
+      "level": "1"
     },
     {
       "id": "host3",
@@ -73,7 +138,9 @@
       "geoCoordinates": {
         "lat": 48.684826888402256,
         "lng": 9.107895390625677
-      }
+      },
+      "group": "VLAN20",
+      "level": "1"
     },
     {
       "id": "host4",
@@ -85,7 +152,9 @@
       "geoCoordinates": {
         "lat": 48.88482688840226,
         "lng": 9.307895390625678
-      }
+      },
+      "group": "VLAN20",
+      "level": "1"
     },
     {
       "id": "host5",
@@ -97,7 +166,9 @@
       "geoCoordinates": {
         "lat": 48.684826888402256,
         "lng": 9.007895390625677
-      }
+      },
+      "group": "VLAN10",
+      "level": "1"
     },
     {
       "id": "host6",
@@ -109,7 +180,9 @@
       "geoCoordinates": {
         "lat": 48.684826888402256,
         "lng": 9.007895390625677
-      }
+      },
+      "group": "VLAN10",
+      "level": "1"
     },
     {
       "id": "host7",
@@ -121,7 +194,9 @@
       "geoCoordinates": {
         "lat": 49.084826888402254,
         "lng": 9.507895390625677
-      }
+      },
+      "group": "VLAN20",
+      "level": "3"
     },
     {
       "id": "host8",
@@ -133,7 +208,9 @@
       "geoCoordinates": {
         "lat": 49.28482688840226,
         "lng": 9.707895390625676
-      }
+      },
+      "group": "VLAN20",
+      "level": "3"
     }
   ]
 }
