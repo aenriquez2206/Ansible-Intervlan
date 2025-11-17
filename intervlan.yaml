@@ -8,52 +8,52 @@ topology:
   nodes:
     SW1:
       kind: cisco_iol
-      image: vrnetlab/cisco_iol:L2-17.12.01
+      image: aenriquez22/cisco_iol:L2-17.12.01
       type: L2
 
     SW2:
       kind: cisco_iol
-      image: vrnetlab/cisco_iol:L2-17.12.01
+      image: aenriquez22/cisco_iol:L2-17.12.01
       type: L2
 
     SWD_1:
       kind: cisco_iol
-      image: vrnetlab/cisco_iol:L2-17.12.01
+      image: aenriquez22/cisco_iol:L2-17.12.01
       type: L2
 
     host1:
       kind: linux
-      image: alpine-ssh:latest
+      image: aenriquez22/alpine-ssh:latest
 
     host2:
       kind: linux
-      image: alpine-ssh:latest
+      image: aenriquez22/alpine-ssh:latest
 
 
     host3:
       kind: linux
-      image: alpine-ssh:latest
+      image: aenriquez22/alpine-ssh:latest
 
     host4:
       kind: linux
-      image: alpine-ssh:latest
+      image: aenriquez22/alpine-ssh:latest
 
     host5:
       kind: linux
-      image: alpine-ssh:latest
+      image: aenriquez22/alpine-ssh:latest
 
     host6:
       kind: linux
-      image: alpine-ssh:latest
+      image: aenriquez22/alpine-ssh:latest
 
 
     host7:
       kind: linux
-      image: alpine-ssh:latest
+      image: aenriquez22/alpine-ssh:latest
 
     host8:
       kind: linux
-      image: alpine-ssh:latest
+      image: aenriquez22/alpine-ssh:latest
 
   links:
     - endpoints: [ "host1:eth1", "SW1:eth2" ]

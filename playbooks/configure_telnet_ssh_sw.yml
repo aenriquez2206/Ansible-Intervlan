@@ -1,0 +1,68 @@
+---
+- name: Configurar ssh y telnet
+  hosts:
+    - clab-intervlan-SW1
+    - clab-intervlan-SW2
+  gather_facts: no
+  connection: network_cli
+  vars:
+    ansible_network_os: cisco.ios.ios
+    ansible_user: admin
+    ansible_password: admin
+
+    vlan-gestion:
+      - interface vlan 100
+    default-gateway:
+      - 192.168.100.1
+    default-mk:
+      - 255.255.255.0
+    ip-gest-SW1:
+      - 192.168.100.100
+    ip-gest-SW2:
+      - 192.168.100.200
+
+  tasks:
+    - name: Crear vlan gestion
+      ios_config:
+        lines:
+          - vlan 100
+          - name VLAN100
+        when:  clab-intervlan-SW1
+    - name: Configurar ip gestion  SW1
+      ios_config:
+        lines:
+          - "{{vlan-gestion}}"
+          - ip address {{ip-gest-SW1}} {{default-mk}}
+          - ip default-gateway {{default.gateway}}
+        when:  clab-intervlan-SW1
+
+    - name: Configurar ip gestion  SW1
+      ios_config:
+        lines:
+          - "{{vlan-gestion}}"
+          - ip address {{ip-gest-SW2}}  {{default-mk}}
+          - ip default-gateway {{default.gateway}}
+        when:  clab-intervlan-SW2
+
+    - name: Configurar telnet para Switches
+      ios_config:
+        lines:
+          - line vty 0 4
+          - password pass12345
+          - login
+          - transport input all
+
+    - name: Guardar configuración
+      ios_command:
+        commands:
+          - write memory
+    
+    - name: Mostrar interfaces
+      ios_command:
+        commands:
+          - show ip interface brief
+      register: result
+
+    - name: Mostrar salida
+      debug:
+        var: result.stdout[0]
