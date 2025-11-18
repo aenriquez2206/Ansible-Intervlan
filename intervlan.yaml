@@ -23,37 +23,37 @@ topology:
 
     host1:
       kind: linux
-      image: aenriquez22/alpine-ssh:latest
+      image: aenriquez22/alpine-ssh:v2
 
     host2:
       kind: linux
-      image: aenriquez22/alpine-ssh:latest
+      image: aenriquez22/alpine-ssh:v2
 
 
     host3:
       kind: linux
-      image: aenriquez22/alpine-ssh:latest
+      image: aenriquez22/alpine-ssh:v2
 
     host4:
       kind: linux
-      image: aenriquez22/alpine-ssh:latest
+      image: aenriquez22/alpine-ssh:v2
 
     host5:
       kind: linux
-      image: aenriquez22/alpine-ssh:latest
+      image: aenriquez22/alpine-ssh:v2
 
     host6:
       kind: linux
-      image: aenriquez22/alpine-ssh:latest
+      image: aenriquez22/alpine-ssh:v2
 
 
     host7:
       kind: linux
-      image: aenriquez22/alpine-ssh:latest
+      image: aenriquez22/alpine-ssh:v2
 
     host8:
       kind: linux
-      image: aenriquez22/alpine-ssh:latest
+      image: aenriquez22/alpine-ssh:v2 
 
   links:
     - endpoints: [ "host1:eth1", "SW1:eth2" ]

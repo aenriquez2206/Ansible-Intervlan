@@ -14,6 +14,36 @@
       "fontStyle": "normal",
       "textDecoration": "none",
       "fontFamily": "monospace"
+    },
+    {
+      "id": "freeText_1763425540315_1",
+      "text": "VLAN10: 192.168.10.0 /24\nVLAN20: 192.168.20.0 /24",
+      "position": {
+        "x": -49,
+        "y": 21
+      },
+      "fontSize": 8,
+      "fontColor": "#ffffff",
+      "backgroundColor": "transparent",
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "fontFamily": "monospace"
+    },
+    {
+      "id": "freeText_1763425576029_2",
+      "text": ".10.10",
+      "position": {
+        "x": -105,
+        "y": 133
+      },
+      "fontSize": 6,
+      "fontColor": "#ffffff",
+      "backgroundColor": "transparent",
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "fontFamily": "monospace"
     }
   ],
   "groupStyleAnnotations": [
