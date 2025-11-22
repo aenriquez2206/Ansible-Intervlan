@@ -56,3 +56,29 @@ resource "null_resource" "run_ansible" {
     EOT
   }
 }
+
+# 3. Desplegar Edgeshark (Visualizador de paquetes)
+resource "null_resource" "deploy_edgeshark" {
+  
+  # CRÍTICO: Esto asegura que SOLO inicie cuando Ansible haya terminado
+  depends_on = [null_resource.run_ansible]
+
+  # Iniciar Edgeshark
+  provisioner "local-exec" {
+    command = <<EOT
+      curl -sL \
+      https://github.com/siemens/edgeshark/raw/main/deployments/wget/docker-compose.yaml \
+    | DOCKER_DEFAULT_PLATFORM= docker compose -f - up -d
+    EOT
+  }
+
+  # Eliminar Edgeshark al destruir la infra
+  provisioner "local-exec" {
+    when    = destroy
+    command = <<EOT
+      curl -sL \
+      https://github.com/siemens/edgeshark/raw/main/deployments/wget/docker-compose.yaml \
+    | DOCKER_DEFAULT_PLATFORM= docker compose -f - down
+    EOT
+  }
+}

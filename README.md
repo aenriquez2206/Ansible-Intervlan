@@ -41,6 +41,7 @@ https://containerlab.dev/manual/vrnetlab/
 - terraform plan 
 
 3. Comando para lanzar las configuraciones de terraforms
-- terraform apply -auto--approve
+- terraform apply -auto-approve
 
 4. Comando para destruir terraform
+- terraform destroy
