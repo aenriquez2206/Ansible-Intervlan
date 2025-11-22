@@ -44,20 +44,114 @@
       "fontStyle": "normal",
       "textDecoration": "none",
       "fontFamily": "monospace"
+    },
+    {
+      "id": "freeText_1763425610883_3",
+      "text": ".10.20",
+      "position": {
+        "x": -108,
+        "y": 171
+      },
+      "fontSize": 6,
+      "fontColor": "#ffffff",
+      "backgroundColor": "transparent",
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "fontFamily": "monospace"
+    },
+    {
+      "id": "freeText_1763425619003_4",
+      "text": ".10.30",
+      "position": {
+        "x": 89,
+        "y": 134
+      },
+      "fontSize": 6,
+      "fontColor": "#ffffff",
+      "backgroundColor": "transparent",
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "fontFamily": "monospace"
+    },
+    {
+      "id": "freeText_1763425624646_5",
+      "text": ".10.40",
+      "position": {
+        "x": 87,
+        "y": 173
+      },
+      "fontSize": 6,
+      "fontColor": "#ffffff",
+      "backgroundColor": "transparent",
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "fontFamily": "monospace"
+    },
+    {
+      "id": "freeText_1763425634187_6",
+      "text": ".20.10",
+      "position": {
+        "x": 7,
+        "y": 133
+      },
+      "fontSize": 6,
+      "fontColor": "#ffffff",
+      "backgroundColor": "transparent",
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "fontFamily": "monospace"
+    },
+    {
+      "id": "freeText_1763425642868_7",
+      "text": ".20.20",
+      "position": {
+        "x": 1,
+        "y": 179
+      },
+      "fontSize": 6,
+      "fontColor": "#ffffff",
+      "backgroundColor": "transparent",
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "fontFamily": "monospace"
+    },
+    {
+      "id": "freeText_1763425649407_8",
+      "text": ".20.30",
+      "position": {
+        "x": 198,
+        "y": 137
+      },
+      "fontSize": 6,
+      "fontColor": "#ffffff",
+      "backgroundColor": "transparent",
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "fontFamily": "monospace"
+    },
+    {
+      "id": "freeText_1763425656322_9",
+      "text": ".20.40",
+      "position": {
+        "x": 198,
+        "y": 175
+      },
+      "fontSize": 6,
+      "fontColor": "#ffffff",
+      "backgroundColor": "transparent",
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "fontFamily": "monospace"
     }
   ],
   "groupStyleAnnotations": [
-    {
-      "id": "VLAN 10:1",
-      "backgroundColor": "#d6a8a8",
-      "backgroundOpacity": 50,
-      "borderColor": "#dddddd",
-      "borderWidth": 0.5,
-      "borderStyle": "dashed",
-      "borderRadius": 2,
-      "color": "#ebecf0",
-      "labelPosition": "top-center"
-    },
     {
       "id": "VLAN10:1",
       "backgroundColor": "#d6a8a8",
@@ -83,6 +177,17 @@
     {
       "id": "VLAN20:3",
       "backgroundColor": "#51bf22",
+      "backgroundOpacity": 50,
+      "borderColor": "#dddddd",
+      "borderWidth": 0.5,
+      "borderStyle": "dashed",
+      "borderRadius": 2,
+      "color": "#ebecf0",
+      "labelPosition": "top-center"
+    },
+    {
+      "id": "VLAN10:3",
+      "backgroundColor": "#d6a8a8",
       "backgroundOpacity": 50,
       "borderColor": "#dddddd",
       "borderWidth": 0.5,
@@ -141,8 +246,8 @@
         "lat": 48.684826888402256,
         "lng": 9.007895390625677
       },
-      "group": "VLAN 10",
-      "level": "1"
+      "group": "VLAN10",
+      "level": "3"
     },
     {
       "id": "host2",
@@ -155,8 +260,8 @@
         "lat": 48.684826888402256,
         "lng": 9.007895390625677
       },
-      "group": "VLAN 10",
-      "level": "1"
+      "group": "VLAN10",
+      "level": "3"
     },
     {
       "id": "host3",

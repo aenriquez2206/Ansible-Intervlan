@@ -32,3 +32,15 @@ https://containerlab.dev/manual/vrnetlab/
 3. comando para crear la imagen de alpine-ssh es indispensable para poder usar los nodos
 - docker build -t alpine-ssh:latest -f Dockerfile.alpine-ssh .
 
+
+
+1. Comando para iniciar terraform
+- terraform init
+
+2. Comando para mostrar los planes de terraform
+- terraform plan 
+
+3. Comando para lanzar las configuraciones de terraforms
+- terraform apply -auto--approve
+
+4. Comando para destruir terraform

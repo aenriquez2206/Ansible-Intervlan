@@ -1,0 +1,4 @@
+---
+- import_playbook: configure_hosts.yml
+- import_playbook: configure_swd.yml
+- import_playbook: configure_sw_acceso.yml
